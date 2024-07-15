@@ -1,0 +1,92 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    Your shopping basket
+{% endblock %}
+{% block content %}
+
+    <style>
+       a {
+        text-decoration: none;
+        }
+    </style>
+
+    <h1>{% trans "Your shopping basket" %}</h1>
+    <table class="cart">
+        <thead>
+        <tr>
+            <th>{% trans "Image" %}</th>
+            <th>{% trans "Product" %}</th>
+            <th>{% trans "Quantity" %}</th>
+            <th>{% trans "Remove" %}</th>
+            <th>{% trans "Unit price" %}</th>
+            <th>{% trans "Price" %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in basket %}
+            {% if item.product %}
+                {% with product=item.product %}
+                    <tr>
+                        <td>
+                            <a href="{{ product.get_absolute_url }}">
+                                <img src="
+                                    {% if product.image %}
+                                        {{ product.image.url }}
+                                    {% else %}
+                                        {% static "img/no_image.png" %}
+                                    {% endif %}" width="30%" class="bord">
+                            </a>
+                        </td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td><a href="{% url 'basket:basket_remove' product.id %}" class="input_style">{% trans "Remove" %}</a></td>
+                        <td class="num">${{ item.price }}</td>
+                        <td class="num">${{ item.total_price }}</td>
+                    </tr>
+                {% endwith %}
+            {% endif %}
+        {% endfor %}
+        {% if basket.coupon %}
+    <tr class="subtotal">
+        <td>{% trans "Subtotal" %}</td>
+        <td colspan="4"></td>
+        <td class="num">${{ basket.get_total_price }}</td>
+    </tr>
+    <tr>
+        <td>
+            "{{ basket.coupon.code }}" {% trans "coupon" %}
+            ({{ basket.coupon.discount }}% {% trans "off" %})
+        </td>
+        <td colspan="4"></td>
+        <td class="num neg">
+            - ${{ basket.get_discount|floatformat:"2" }}
+        </td>
+    </tr>
+    {% endif %}
+    <tr class="total">
+        <td>{% trans "Total" %}</td>
+        <td colspan="4">
+            <form method="post" action="{% url 'basket:basket_clear' %}">
+            {% csrf_token %}
+            <button type="submit" class="input_style">{% trans "Clear basket" %}</button>
+            </form>
+        </td>
+        <td class="num">
+            ${{ basket.get_total_price_after_discount|floatformat:"2" }}
+        </td>
+    </tr>
+        </tbody>
+    </table>
+    <br>
+    <form action="{% url "coupons:apply" %}" method="post">
+        {{ coupon_apply_form }}
+        <input type="submit" value="{% trans "Apply" %}" class="input_style">
+        {% csrf_token %}
+    </form>
+    <p class="text-right">
+        <a href="{% url "shop:product_list" %}" class="input_style">{% trans "Continue shopping" %}</a>
+        <a href="{% url "orders:order_create" %}" class="input_style">{% trans "Checkout" %}</a>
+    </p>
+{% endblock %}

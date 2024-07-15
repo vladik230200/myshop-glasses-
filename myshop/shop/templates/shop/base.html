@@ -1,0 +1,89 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>
+        {% block title %}{% trans "My shop" %}{% endblock %}
+    </title>
+    <link href="{% static "css/stylesheet.css" %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+    <style>
+        li {list-style-type: none;}
+        ul {margin-left: 0;
+        padding-left: 0;}
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="wrap-logo">
+        <a href="{% url "shop:product_list" %}" class="logo">{% trans "My shop" %}
+            <img src="{% static 'img/logo.png'%}" width=3%></img>
+        </a>
+        <nav>
+            {% with total_items=basket|length %}
+            {% if basket|length > 0 %}
+                {% trans "Your basket" %}:
+                <a href="{% url "basket:basket_detail" %}">
+                    {% blocktrans with total_items_plural=total_items|pluralize total_price=basket.get_total_price %}
+                        {{ total_items }} item{{ total_items_plural }},
+                        ${{ total_price }}
+                    {% endblocktrans %}
+                </a>
+            {% else %}
+                {% trans "Your basket is empty." %}
+            {% endif %}
+            {% endwith %}
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="wrapper">
+    {% block content %}
+    {% endblock %}
+    </div>
+</main>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<header class="bot">
+    <div class="wrap-logo">
+        <nav>
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            <ul>
+                <li>
+                    <div>
+                        <p>
+                        {% trans "Language" %}:
+                        {% for language in languages %}
+                        <a href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %}{% endif %}>
+                            {{ language.name_local }}
+                        </a>
+                        {% endfor %}
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                       <p> ©{% trans " The project was created by a student of the BVT2151 group, Vladislav Mikhailovich Karelov" %}</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>

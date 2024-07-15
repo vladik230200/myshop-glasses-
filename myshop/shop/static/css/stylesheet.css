@@ -1,0 +1,406 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url('../img/fon.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #FFEB3B;
+    padding: 20px 250px;
+    box-shadow: 0px 5px 5px gray;
+}
+
+.wrap-logo {
+    display: flex;
+    align-items: center;
+}
+
+
+header a {
+    color: #212121;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 40px;
+}
+
+header a.logo {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+header a:hover {
+    background-color: #FBC02D;
+    color: #212121;
+}
+
+header a.active {
+    background-color: #FBC02D;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.line_div {
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.line_div2 {
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.wrapper {
+    max-width: 1170px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Выравнивание карточек по горизонтали */
+    gap: 1px; /* Расстояние между карточками */
+}
+
+.border {
+    width: calc(40% - 100px); /* Три карточки в ряд с учетом отступов */
+    margin: 20px 0;
+    background: white;
+    padding: 20px;
+    border: 1px solid #F1E7E8;
+    transition: border-color .3s ease-in-out; /* Добавлен переход для изменения цвета границы */
+    position: relative; /* Добавлено для абсолютного позиционирования кнопок внутри блока */
+}
+
+.wrap {
+    height: 100%;
+    position: relative;
+}
+
+.product-wrap {
+    position: relative;
+    overflow: hidden; /* Добавлено для предотвращения выхода изображения за границы */
+}
+
+.product-wrap::after {
+    content: '';
+    background: rgba(73, 102, 162, .5);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    opacity: 0;
+    transform: scale(.3);
+    transition: .3s ease-in-out;
+}
+
+.border:hover .product-wrap::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.product-wrap a {
+    display: block;
+    text-decoration: none;
+}
+
+.product-wrap img {
+    display: block;
+    width: 100%;
+    height: auto; /* Сохраняет пропорции изображения */
+}
+
+.loop-action {
+   position: absolute;
+   left: 50%;
+   top: 20%; /* Поднято вверх */
+   transform: translateX(-50%);
+   opacity: 0; /* Сделано невидимым по умолчанию */
+   transition: opacity .3s ease-in-out; /* Плавный переход для видимости */
+}
+
+.border:hover .loop-action {
+   opacity: 1; /* Сделано видимым при наведении на .border */
+}
+
+.loop-action a {
+   text-decoration: none;
+   display: block;
+   border: 1px solid white;
+   white-space: nowrap;
+   text-transform: uppercase;
+   padding: .5em 1em;
+   font-size: 14px;
+   line-height: 1.6;
+   outline: none;
+   position: relative;
+   overflow: hidden;
+   text-align: center;
+   color: white;
+   min-width: 160px;
+   margin: 5px auto;
+   transition: .3s ease-in-out; /* Плавный переход для фона */
+}
+
+.loop-action a::after {
+   content: '';
+   position: absolute;
+   left: -220%;
+   top: -500%;
+   width: 140%;
+   height: 1000%;
+   transform: rotate(45deg);
+   background: white;
+   z-index: -1; /* Помещает псевдоэлемент под текст */
+   transition: .3s ease-in-out; /* Плавный переход для фона */
+}
+
+.loop-action a:hover {
+   color: black; /* Цвет текста при наведении */
+}
+
+.loop-action a:hover::after {
+   left: 0%; /* Перемещение фона при наведении *
+}
+
+.border:hover {
+   border-color: #4966A2; /* Цвет границы при наведении */
+}
+
+.product-info {
+   padding-top: 15px; /* Отступ сверху для информации о продукте */
+}
+
+.product-title {
+   font-weight: normal; /* Обычный вес шрифта */
+   font-family: "Open Sans"; /* Шрифт */
+   color: #162546; /* Цвет текста */
+   font-size: 18px; /* Размер текста */
+}
+
+.price {
+   color: #162546; /* Цвет текста */
+   font-style: italic; /* Курсив */
+   font-weight: bold; /* Жирный шрифт */
+}
+
+@media (max-width: 768px) {
+   .border {
+       width: calc(50% - 40px); /* Две карточки в ряд с учетом отступов на маленьких экранах */
+   }
+}
+
+@media (max-width: 480px) {
+   .border {
+       width: calc(100% - 40px); /* Одна карточка в ряд с учетом отступов на очень маленьких экранах */
+   }
+}
+
+
+
+.navbar {
+    overflow: hidden;
+    background-color: #FFEB3B;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    padding-right: 100px;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #FFEB3B;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.cart{
+     border-collapse: collapse;
+}
+
+td{
+    padding: 3px;
+    border: 2px solid black;
+}
+
+th{
+    background: #FFEB3B;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.bord{
+    border-radius: 10px; /* Радиус скругления */
+    border: 1px solid #FFEB3B; /* Параметры рамки */
+    box-shadow: 0 0 7px #666;
+}
+
+
+.dropdown_order {
+    float: right;
+    overflow: hidden;
+    padding-right: 100px;
+}
+
+.dropdown_order .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    padding: 14px 160px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+
+
+.dropdown_order-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown_order-content a:hover {
+    background-color: #FFEB3B;
+}
+
+.dropdown_order:hover .dropdown_order-content {
+    display: block;
+}
+
+.input_style{
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input{
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.bot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #FFEB3B;
+    padding: 5px 250px;
+
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+}
+
+.bot a {
+    color: #212121;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 40px;
+}
+
+.bot a.logo {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.bot a:hover {
+    background-color: #FBC02D;
+    color: #212121;
+}
+
+.bot a.active {
+    background-color: #FBC02D;
+}

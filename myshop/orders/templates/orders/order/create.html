@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Checkout" %}
+{% endblock %}
+
+{% block content %}
+    <h1>{% trans "Checkout" %}</h1>
+    <div class="dropdown_order">
+        <h3>{% trans "Your order" %}</h3>
+        <table class="cart">
+            <th>{% trans "Quantity"%}</th>
+            <th>{% trans "Product"%}</th>
+            <th>{% trans "Price"%}</th>
+            <tbody>
+                {% for item in basket %}
+                    <tr>
+                        <td>{{ item.quantity }}x </li></td>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.total_price }}$</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>{% trans "Total" %}: ${{ basket.get_total_price_after_discount|floatformat:"2" }}</p>
+    </div>
+
+    <h3>{% trans "Fill out the form for delivery" %}</h3>
+    <form action="{% url "orders:order_create" %}" method="post" class="order-form">
+        {{ form.as_p }}
+        <p><input type="submit" value="{% trans "Place order" %}" class="input_style"></p>
+        {% csrf_token %}
+    </form>
+{% endblock %}

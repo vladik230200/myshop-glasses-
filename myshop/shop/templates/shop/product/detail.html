@@ -1,0 +1,32 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.title }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="dropdown">
+        <h3>{% trans "Categories" %}</h3>
+        <div class="dropdown-content">
+            <a href="{% url "shop:product_list" %}">{% trans "All" %}</a>
+            {% for c in categories %}
+                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+            {% endfor %}
+        </div>
+</div>
+<div class="container">
+    <div class="product-detail">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" width=60% class="bord">
+        <h1>{{ product.name }}</h1>
+        <h5>{% trans "Description" %}:</h5>
+        <h5>{{ product.description }}</h5>
+        <p class="price">{% trans "Price" %}: {{ product.price }} $</p>
+        <form action="{% url "basket:basket_add" product.id %}" method="post">
+            {{ basket_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="{% trans "Add to basket" %}" class="input_style">
+        </form>
+    </div>
+</div>
+{% endblock %}

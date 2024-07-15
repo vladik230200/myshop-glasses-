@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-14 18:17+0300\n"
+"PO-Revision-Date: 2024-07-14 18:17+0300\n"
+"Last-Translator: b'  <>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Translated-Using: django-rosetta 0.7.6\n"
+
+#: .\basket\forms.py:8 .\basket\templates\basket\detail.html:21
+msgid "Quantity"
+msgstr "Количество"
+
+#: .\basket\templates\basket\detail.html:15
+msgid "Your shopping basket"
+msgstr "Ваша корзина"
+
+#: .\basket\templates\basket\detail.html:19
+msgid "Image"
+msgstr "Изображение"
+
+#: .\basket\templates\basket\detail.html:20
+msgid "Product"
+msgstr "Продукты"
+
+#: .\basket\templates\basket\detail.html:22
+#: .\basket\templates\basket\detail.html:44
+msgid "Remove"
+msgstr "Удалить"
+
+#: .\basket\templates\basket\detail.html:23
+msgid "Unit price"
+msgstr "Цена за единицу товара"
+
+#: .\basket\templates\basket\detail.html:24
+#: .\shop\templates\shop\product\detail.html:24
+#: .\shop\templates\shop\product\list.html:38
+msgid "Price"
+msgstr "Стоимость"
+
+#: .\basket\templates\basket\detail.html:53
+msgid "Subtotal"
+msgstr "Промежуточный итог"
+
+#: .\basket\templates\basket\detail.html:59
+msgid "coupon"
+msgstr "Купон"
+
+#: .\basket\templates\basket\detail.html:60
+msgid "off"
+msgstr "скидки"
+
+#: .\basket\templates\basket\detail.html:69
+msgid "Total"
+msgstr "Итого"
+
+#: .\basket\templates\basket\detail.html:80
+#| msgid "Your basket"
+msgid "Clear basket"
+msgstr "Очистить корзину"
+
+#: .\basket\templates\basket\detail.html:84
+msgid "Apply"
+msgstr "Применить"
+
+#: .\basket\templates\basket\detail.html:88
+msgid "Continue shopping"
+msgstr "Продолжить покупки"
+
+#: .\basket\templates\basket\detail.html:89
+msgid "Checkout"
+msgstr "К оформлению заказа"
+
+#: .\coupons\forms.py:6
+msgid "Coupon"
+msgstr "Купон"
+
+#: .\myshop\settings.py:98
+msgid "English"
+msgstr "Английский"
+
+#: .\myshop\settings.py:99
+msgid "Russian"
+msgstr "Русский"
+
+#: .\myshop\urls.py:11
+msgid "^basket/"
+msgstr "Ваша корзина"
+
+#: .\myshop\urls.py:12
+msgid "^orders/"
+msgstr "Заказ"
+
+#: .\myshop\urls.py:13
+msgid "^coupons/"
+msgstr "Купон"
+
+#: .\shop\templates\shop\base.html:8 .\shop\templates\shop\base.html.py:23
+msgid "My shop"
+msgstr "Мой магазин"
+
+#: .\shop\templates\shop\base.html:29
+msgid "Your basket"
+msgstr "Ваша корзина"
+
+#: .\shop\templates\shop\base.html:31
+#, python-format
+msgid ""
+"\n"
+"                        %(total_items)s item%(total_items_plural)s,\n"
+"                        $%(total_price)s\n"
+"                    "
+msgstr ""
+"\n"
+"%(total_items)s товаров %(total_items_plural)s на $%(total_price)s"
+
+#: .\shop\templates\shop\base.html:37
+msgid "Your basket is empty."
+msgstr "Корзина пуста"
+
+#: .\shop\templates\shop\base.html:69
+msgid "Language"
+msgstr "Язык"
+
+#: .\shop\templates\shop\base.html:80
+msgid ""
+" The project was created by a student of the BVT2151 group, Vladislav "
+"Mikhailovich Karelov"
+msgstr ""
+" Проект создан студентом группы БВТ2151 Кареловым Владиславом Михайловичем "
+
+#: .\shop\templates\shop\product\detail.html:10
+#: .\shop\templates\shop\product\list.html:11
+msgid "Categories"
+msgstr "Категории"
+
+#: .\shop\templates\shop\product\detail.html:12
+#: .\shop\templates\shop\product\list.html:13
+msgid "All"
+msgstr "Все"
+
+#: .\shop\templates\shop\product\detail.html:22
+msgid "Description"
+msgstr "Описание"
+
+#: .\shop\templates\shop\product\detail.html:28
+msgid "Add to basket"
+msgstr "Добавить в корзину"
+
+#: .\shop\templates\shop\product\list.html:30
+msgid "Fast view"
+msgstr "Быстрый просмотр"
+
+#: .\shop\templates\shop\product\list.html:36
+msgid "In stock"
+msgstr "В наличии"
+
+#~ msgid " Быстрый просмотр"
+#~ msgstr "Fast viev"
